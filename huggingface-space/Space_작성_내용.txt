@@ -1,0 +1,23 @@
+============================================
+  Hugging Face Space 생성 시 복사해서 붙여넣기
+============================================
+
+■ Space name (공간 이름)
+songyun-ai-workshop
+
+■ Short description (짧은 설명)
+Generate traditional Chinese Song Dynasty style (宋韵) images using Stable Diffusion. 宋代风格 AI 图像生成。
+
+■ License (라이선스)
+MIT
+
+■ Select the Space SDK
+Gradio
+
+■ Choose a Gradio template
+Blank
+
+■ Space hardware
+CPU basic (Free)
+
+============================================

@@ -6,3 +6,5 @@ hf_token.txt
 PUBLIC_LINK.txt
 *.log
 .DS_Store
+.gradio/
+app_output.txt
