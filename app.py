@@ -147,7 +147,6 @@ def load_pipeline() -> None:
         torch_dtype=dtype,
         safety_checker=None,
         low_cpu_mem_usage=True,
-        resume_download=True,
     )
     _pipeline = _pipeline.to(device)
     if device == "cuda":
