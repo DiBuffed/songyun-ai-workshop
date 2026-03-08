@@ -17,4 +17,7 @@ COPY app.py prompts.json custom.css ./
 ENV PORT=8080
 EXPOSE 8080
 
+# Avoid download stuck at 0%
+ENV HF_HUB_ENABLE_HF_TRANSFER=0
+
 CMD ["python", "app.py"]

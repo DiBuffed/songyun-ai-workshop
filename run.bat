@@ -32,6 +32,7 @@ echo.
 echo Starting app... (공개 링크 생성 시 팝업으로 표시됩니다)
 echo.
 set PYTHONIOENCODING=utf-8
+set HF_HUB_ENABLE_HF_TRANSFER=0
 venv\Scripts\python.exe run_with_url.py
 
 pause

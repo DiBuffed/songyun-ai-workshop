@@ -1,5 +1,35 @@
 # 접속 안 될 때 / MemoryError
 
+## Fetching 0%에서 멈출 때 (다운로드 느림/멈춤)
+
+모델 다운로드가 0%에서 진행되지 않을 때:
+
+### 1. .env에 HF 미러 추가 (가장 효과적)
+
+`.env` 파일을 열고 다음 줄을 **맨 위에** 추가:
+
+```
+HF_ENDPOINT=https://hf-mirror.com
+```
+
+저장 후 `run.bat` 다시 실행.
+
+### 2. 모델 미리 다운로드
+
+`download_model.bat` 실행 → 다운로드 완료 대기 → `run.bat` 실행
+
+(첫 실행 시 venv 필요. `run.bat` 한 번 실행 후 사용)
+
+### 3. HF 토큰 (선택)
+
+[huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)에서 토큰 생성 후 `.env`에:
+
+```
+HF_TOKEN=hf_xxxx
+```
+
+---
+
 ## MemoryError (메모리 부족)
 
 모델 로딩 시 **MemoryError**가 나면 RAM이 부족한 상태입니다.
