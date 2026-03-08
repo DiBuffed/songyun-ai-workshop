@@ -10,6 +10,7 @@ import os
 import random
 import socket
 import sys
+import threading
 from pathlib import Path
 
 import gradio as gr
@@ -296,7 +297,7 @@ def generate_image(
 ) -> tuple[object, str]:
     """Generate a single image. Returns (PIL.Image or None, status_message)."""
     if _pipeline is None:
-        return None, "The model is not ready. Please restart the app and try again."
+        return None, "Model is loading. Please wait a few minutes and try again."
 
     ok, err = validate_dimensions(int(width), int(height))
     if not ok:
@@ -718,21 +719,39 @@ def main():
         print("\nPlease fix your .env file and try again.")
         sys.exit(1)
 
-    print("Loading model (this may take a minute on first run)...")
-    try:
-        load_pipeline()
-    except FileNotFoundError as e:
-        print(f"Error: Model or LoRA file not found. {e}")
-        print("Check BASE_MODEL_ID and LORA_PATH in your .env file.")
-        sys.exit(1)
-    except Exception as e:
-        import traceback
-        print(f"Error loading model: {e}")
-        traceback.print_exc()
-        sys.exit(1)
+    # Railway/Render: start server first so platform sees HTTP quickly, then load model in background.
+    # Otherwise the platform kills the container (startup timeout) before the 4GB model finishes downloading.
+    on_cloud = bool(os.environ.get("PORT"))
+    if on_cloud:
+        def _load_in_background():
+            print("Loading model in background (this may take 5–10 min on first run)...")
+            try:
+                load_pipeline()
+                print("Model loaded successfully.")
+            except Exception as e:
+                import traceback
+                print(f"Error loading model: {e}")
+                traceback.print_exc()
+
+        threading.Thread(target=_load_in_background, daemon=True).start()
+    else:
+        print("Loading model (this may take a minute on first run)...")
+        try:
+            load_pipeline()
+        except FileNotFoundError as e:
+            print(f"Error: Model or LoRA file not found. {e}")
+            print("Check BASE_MODEL_ID and LORA_PATH in your .env file.")
+            sys.exit(1)
+        except Exception as e:
+            import traceback
+            print(f"Error loading model: {e}")
+            traceback.print_exc()
+            sys.exit(1)
 
     # Railway, Render, etc. set PORT; use it when present
     port = int(os.environ.get("PORT", CONFIG["server_port"]))
+    if on_cloud:
+        print("Starting server first; model will load in background.")
     log_startup_status(port)
 
     demo = build_ui()
