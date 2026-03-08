@@ -1,0 +1,8 @@
+venv/
+__pycache__/
+*.pyc
+.env
+hf_token.txt
+PUBLIC_LINK.txt
+*.log
+.DS_Store

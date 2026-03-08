@@ -1,0 +1,28 @@
+{
+  "prompts": [
+    {
+      "name": "Misty mountains (山水画)",
+      "prompt": "misty mountains, ink wash painting, literati style, subtle blank space, traditional Chinese landscape, Song dynasty aesthetic, soft brush texture, serene atmosphere"
+    },
+    {
+      "name": "Ancient pavilion in mountains",
+      "prompt": "ancient pavilion in the mountains, soft brush texture, Song dynasty landscape, ink and wash, distant peaks, traditional Chinese painting, elegant composition"
+    },
+    {
+      "name": "Scholar by the river",
+      "prompt": "scholar by the river, restrained colors, elegant composition, literati painting, Song dynasty style, contemplative mood, traditional Chinese art"
+    },
+    {
+      "name": "Pine trees and distant peaks",
+      "prompt": "pine trees, distant peaks, quiet atmosphere, traditional Chinese painting, Song dynasty landscape, ink wash, minimalist composition"
+    },
+    {
+      "name": "Flower and bird (花鸟画)",
+      "prompt": "flower and bird painting, delicate brushwork, Song dynasty style, soft colors, elegant lines, traditional Chinese illustration"
+    },
+    {
+      "name": "Bamboo in moonlight",
+      "prompt": "bamboo grove in moonlight, ink wash, Song dynasty aesthetic, subtle shadows, literati painting, refined brush strokes"
+    }
+  ]
+}

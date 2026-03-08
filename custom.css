@@ -1,0 +1,43 @@
+/* Songyun AI Workshop - Corporate clean design */
+#songyun-header, #songyun-header * { 
+    color: #0f172a !important; 
+}
+#songyun-header .sub { 
+    color: #64748b !important; 
+}
+
+.section-card, .output-card {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    padding: 1.25rem !important;
+    margin-bottom: 1rem !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+.section-title {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    color: #64748b !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+}
+
+.output-card { min-height: 420px !important; }
+
+.songyun-footer {
+    text-align: center !important;
+    font-size: 0.75rem !important;
+    color: #64748b !important;
+    margin-top: 2rem !important;
+    padding: 1.25rem !important;
+    border-top: 1px solid #e2e8f0 !important;
+    background: #f8fafc !important;
+}
+
+.gradio-container, .contain, main { 
+    background: #f8fafc !important; 
+}
