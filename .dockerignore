@@ -1,0 +1,16 @@
+venv/
+.git/
+__pycache__/
+*.pyc
+.env
+.env.example
+*.log
+.DS_Store
+.gradio/
+*.bat
+*.md
+huggingface-space/
+run_with_url.py
+upload_to_space.py
+download_dreamshaper.py
+songyun-ai-workshop/

@@ -68,6 +68,14 @@ Railway 대시보드 → **Variables**에서 설정:
 
 | 증상 | 해결 |
 |------|------|
-| 빌드 실패 | Logs에서 에러 확인, requirements.txt 버전 조정 |
+| 빌드 실패 (Build image) | Dockerfile 사용 중 (CPU 전용 PyTorch). Logs에서 에러 확인 |
 | 메모리 부족 | Railway 유료 플랜 또는 HF Space 사용 |
-| 502 에러 | 앱 시작 대기 (모델 로딩 시간) |
+| 502 에러 | 앱 시작 대기 (모델 로딩 5~10분) |
+
+---
+
+## Dockerfile 사용 (빌드 실패 시)
+
+프로젝트에 `Dockerfile`이 있으면 Railway가 자동으로 사용합니다.
+- **CPU 전용 PyTorch** 사용 → 빌드 시간 단축, 이미지 크기 감소
+- 로컬 GPU 사용 시에는 기존 `requirements.txt` 그대로 사용
