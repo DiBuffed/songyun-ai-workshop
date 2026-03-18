@@ -648,7 +648,8 @@ def build_ui():
                 background: #f8fafc;
             ">
                 Songyun AI Workshop — Local demo for 宋韵 image generation<br>
-                <span style="font-size:0.65rem;opacity:0.8">UI v4 · Songyun LoRA info · 2025-03-08</span>
+                <span style="font-size:0.65rem;opacity:0.8">UI v4 · Songyun LoRA info · 2025-03-08</span><br>
+                <span style="font-size:0.6rem;opacity:0.7">Made by 刘承澔</span>
             </div>
             """
         )
